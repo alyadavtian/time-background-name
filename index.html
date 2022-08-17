@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timeNbackground</title>
+    <!-- <link rel="stylesheet" href="timeNcolor.css"> -->
+    <style>
+        body{
+    display: flex;
+    background: ivory;
+    /* background-size: 100% 100%; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: all .30s;  
+}
+h2{ font-weight: 200; font: optional;}
+h1{font-weight: 250; font: optional;}
+
+
+div{
+    text-align: center;
+    background:aliceblue; 
+    padding: 20px 15px;
+    border-radius: 15px;
+}
+button{
+    border: 1px solid black;
+    padding: 15px 10px;
+    border-radius: 15px;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+h1, h2{
+    animation: down 1s;
+}
+@keyframes down {
+    from{
+        transform:translateY(-50px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+    .btn{
+        animation-name: above;
+        animation-duration: 1s;
+    }
+@keyframes above{
+    from{
+        transform:translateY(50px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+button:hover{
+    background: rgba(0, 0, 0, 0.06);
+}
+    </style>
+</head>
+<body>
+    <div>
+        <h2> Hello, Angelina</h2>
+        <h1> Now is 12:12:12 </h1>
+        <h2> Do you like this background?</h2>
+        <h2 style="animation: above 1s ;">You can change it</h2>
+        <button class="btn">Change background</button>
+        <!-- <a href="Cards+JS.html"><button class="btn">Watch cards</button></a> -->
+    </div>
+
+    <script>
+        const name = prompt('What is your name?')
+        document.querySelector('h2').textContent = 'Hello, ' + name
+        document.querySelector('h1').textContent = 'Now is  ' + new Date().toLocaleTimeString()
+	
+	        setInterval(function() {
+	            document.querySelector('h1').textContent = 'Now is ' + new Date().toLocaleTimeString()
+	        }, 1000)
+            const colors = ['Beige','Lightyellow','lightgreen', 'DarkSeaGreen','PaleGreen', 'lightgrey', 'lightPink', 'pink', 'Lavender','lavenderblush', 'MistyRose','AntiqueWhite', 'lightcyan', 'aliceblue']
+            let index = 0
+            
+
+            document.querySelector('button').onclick = function() {
+                document.body.style.background = colors[index]
+                index++
+                if (index >= colors.length) index = 0
+            }
+            
+            
+    </script>
+</body>
+</html>
